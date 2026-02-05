@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HBD คนน่ารักของซิน 💖</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ffe6f0;
+  text-align: center;
+  color: #444;
+  font-size: 1.2rem; /* ขยายทั้งเว็บ */
+}
+
+.container {
+  padding: 20px;
+}
+
+h1 {
+  color: #ff5fa2;
+}
+
+button {
+  background: #ff5fa2;
+  border: none;
+  color: white;
+  padding: 12px 22px;
+  margin: 10px;
+  border-radius: 25px;
+  font-size: 16px;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.hidden {
+  display: none;
+}
+
+img {
+  width: 80%;
+  max-width: 300px;
+  border-radius: 15px;
+  margin: 10px 0;
+}
+
+.text-box {
+  background: white;
+  border-radius: 20px;
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.heart {
+  position: fixed;
+  font-size: 30px;
+  animation: floatUp 4s linear forwards, beat 1s infinite;
+}
+@keyframes beat {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+
+@keyframes floatUp {
+  from { bottom: 0; opacity: 1; }
+  to { bottom: 100vh; opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgm" src="song.mp3" loop></audio>
+
+<div class="container">
+
+  <!-- หน้าแรก -->
+  <div id="page0">
+    <h1>🎂 HBD คนน่ารัก 🎂</h1>
+    <div style="font-size:40px">🐶🐱</div>
+    <button onclick="start()">เริ่ม</button>
+  </div>
+
+  <!-- รูป + ข้อความ -->
+  <div id="page1" class="hidden">
+    <img src="img1.jpg">
+    <img src="img2.jpg">
+    <img src="img3.jpg">
+
+    <div class="text-box">
+      ขอบคุณเกมส์นี้ที่ทำให้เรามาเจอกันนะ 5555<br>
+      ขอให้ที่รักมีความสุขมาก ๆ<br>
+      อยู่กัดกันไปแบบนี้นาน ๆ นะ 💕
+    </div>
+
+    <div style="font-size:60px">🐶💥🐱</div>
+
+    <button onclick="q1()">ดำเนินการต่อ</button>
+  </div>
+
+  <!-- คำถาม 1 -->
+  <div id="q1" class="hidden">
+    <p>ที่รัก ๆ เค้าไหม</p>
+    <button onclick="q2()">รัก</button>
+    <button onclick="end()">ไม่รัก</button>
+  </div>
+
+  <!-- คำถาม 2 -->
+  <div id="q2" class="hidden">
+    <p>รักมากไหม</p>
+    <button onclick="q3()">มาก</button>
+    <button onclick="q3()">มากกกกก ๆ</button>
+  </div>
+
+  <!-- คำถาม 3 -->
+  <div id="q3" class="hidden">
+    <p>ที่รักยินดีแต่งงานกับเค้าไหม</p>
+    <div style="font-size:40px">📄💍</div>
+    <button onclick="extra()">ยินดีพร้อมลงลายมือชื่อ</button>
+    <button onclick="end()">ไม่ยินดี</button>
+  </div>
+
+  <!-- คำถามเพิ่มเติม -->
+  <div id="extra" class="hidden">
+    <h3>คำถามเพิ่มเติม</h3>
+
+    <div class="text-box">
+      ก่อนหน้านี้เราแยกทางกันใช่ไหม เค้าเองก็ไม่แน่ใจ<br>
+      มันไม่ได้มีคำว่าเลิกกันออกมาชัดๆ แต่ก็พอจะรับรู้ได้ว่าอะไรหลายๆอย่างได้เปลี่ยนไป<br><br>
+
+      มันมีบางช่วงบางอย่างที่เธอทำ<br>
+      เค้าก็แอบคิดไปเองบ้างว่า เหมือนรอเวลานี้มานานแล้ว 555<br>
+      ตอนเห็นเธอที่รีบเอาทุกอย่างออกเหมือนไม่มีอะไรเกิดขึ้นเลยก็แอบคิดว่าเธออาจจะเตรียมใจไว้นานแล้ว<br><br>
+
+            แล้วก็คิดว่าคงไม่สำคัญกับเธออีกต่อไป<br>
+      แต่ว่าคิดถึงเธอมาก ๆ เลยนะเค้ายอมรับว่าเค้าเสียใจมากจริงๆ<br>
+      เธออาจจะไม่เป็นอะไรเลยก็ได้<br>
+      อาจจะไม่ได้คิดอะไรก็ได้<br>
+      แต่มันคอยคิดคอยกวนใจแบบนี้อยู่ตลอดเลย
+    </div>
+
+    <p>ยังอยากจะอ่านต่อไหม</p>
+    <button onclick="finalQ()">อ่านต่อไป</button>
+    <button onclick="end()">ไม่อ่าน</button>
+  </div>
+
+  <!-- คำถามสุดท้าย -->
+  <div id="finalQ" class="hidden">
+    <div class="text-box">
+      เค้าอยากมีเธอไปเรื่อย ๆ นะ<br>
+      เค้าหมายถึงอยากมีเธอไปเรื่อย ๆ <br>
+      แม้ในวันที่เราไม่เข้าใจกันหรืออาจจะงอนกัน<br>
+      แต่เค้าไม่เคยอยากเสียเธอไปสักครั้ง<br>
+      ขอโทษที่ทำตัวไม่น่ารักนะ
+    </div>
+
+    <p>เธออยากเริ่มต้นใหม่กับเค้าไหม</p>
+    <button onclick="startFinal()">อยาก</button>
+    <button onclick="end()">ไม่อยาก</button>
+  </div>
+
+ <!-- ตอนจบ + ปุ่มโทร -->
+<div id="callSection" class="hidden">
+  <h2>โทรหาหน่อยได้ไหม 🥺👉👈</h2>
+  <p>คิดถึงจะแย่อยู่แล้ว 💕</p>
+
+  <a href="https://ig.me/call/ig.lucinda">
+    <button style="font-size:18px;">📞 โทรหาเค้าหน่อยนะ</button>
+  </a>
+</div>
+
+
+<script>
+function hideAll() {
+  document.querySelectorAll('.container > div').forEach(el => el.classList.add('hidden'));
+}
+
+function start() {
+  hideAll();
+  document.getElementById('page1').classList.remove('hidden');
+  const music = document.getElementById("bgm");
+  music.volume = 0.6;
+  music.play();
+}
+
+function q1(){ hideAll(); document.getElementById('q1').classList.remove('hidden'); }
+function q2(){ hideAll(); document.getElementById('q2').classList.remove('hidden'); }
+function q3(){ hideAll(); document.getElementById('q3').classList.remove('hidden'); }
+function extra(){ hideAll(); document.getElementById('extra').classList.remove('hidden'); }
+function finalQ(){ hideAll(); document.getElementById('finalQ').classList.remove('hidden'); }
+function end(){ hideAll(); }
+
+// ❤️ หัวใจดุ้กดิ้ก
+function hearts(){
+  for(let i=0;i<40;i++){
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="🩷";
+    h.style.left=Math.random()*100+"vw";
+    h.style.bottom="-20px";
+    h.style.animationDuration=(3+Math.random()*2)+"s";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),5000);
+  }
+}
+
+// 👉 กด “อยาก” → หัวใจลอย → โชว์ปุ่มโทร
+function startFinal() {
+  hideAll();
+  hearts();
+
+  setTimeout(() => {
+    document.getElementById("callSection").classList.remove("hidden");
+  }, 4000);
+}
+</script>
+
+
+</body>
+</html>
